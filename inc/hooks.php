@@ -51,3 +51,14 @@ if ( ! function_exists( 'slovo_add_site_info' ) ) {
 		echo apply_filters( 'slovo_site_info_content', $site_info ); // WPCS: XSS ok.
 	}
 }
+
+
+/**
+ * Add Acf Page Options
+ */
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	
+}
