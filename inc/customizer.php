@@ -82,6 +82,7 @@ if ( ! function_exists( 'slovo_theme_customize_register' ) ) {
 			$valid = array(
 				'Source Sans Pro:400,700,400italic,700italic' => 'Source Sans Pro',
 				'Open Sans:400italic,700italic,400,700' => 'Open Sans',
+				'Cormorant:400,500,500i,600' => 'Cormorant',
 				'Oswald:400,700' => 'Oswald',
 				'Playfair Display:400,700,400italic' => 'Playfair Display',
 				'Montserrat:400,700' => 'Montserrat',
@@ -188,6 +189,7 @@ if ( ! function_exists( 'slovo_theme_customize_register' ) ) {
 		$font_choices = array(
 			'Source Sans Pro:400,700,400italic,700italic' => 'Source Sans Pro',
 			'Open Sans:400italic,700italic,400,700' => 'Open Sans',
+			'Cormorant:400,500,500i,600' => 'Cormorant',
 			'Oswald:400,700' => 'Oswald',
 			'Playfair Display:400,700,400italic' => 'Playfair Display',
 			'Montserrat:400,700' => 'Montserrat',
