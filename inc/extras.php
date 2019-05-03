@@ -148,3 +148,32 @@ function slovo_mime_types($mimes) {
     return $mimes;
 }
 
+
+function slovo_custom_styles() {
+
+	wp_enqueue_style(
+		'custom-style',
+		get_template_directory_uri() . '/css/custom_script.css'
+	);
+	//Fonts
+	$headings_font = esc_html(get_theme_mod('slovo_headings_fonts'));
+	$body_font = esc_html(get_theme_mod('slovo_body_fonts'));        
+
+	if ( $body_font ) {
+
+		$font_pieces = explode(":", $body_font);
+		$custom .= "body, button, input, select, textarea { font-family: {$font_pieces[0]}; }"."\n";
+	//	$custom_css = "body, button, input, select, textarea { font-family: {$font_pieces[0]};}";
+
+	}
+
+		if ( $headings_font ) {
+
+			$font_pieces = explode(":", $headings_font);
+			$custom .= "h1, h2, h3, h4, h5, h6 { font-family: {$font_pieces[0]}; }"."\n";
+
+		}
+
+        wp_add_inline_style( 'custom-style', $custom );
+	}
+add_action( 'wp_enqueue_scripts', 'slovo_custom_styles' );
