@@ -1,0 +1,61 @@
+/**
+* A collection of mixin and function to manage font-family rules into scss file
+* @organization: Psicografici
+* @organization url: https://github.com/Psicografici
+* @author: Tiex84
+* @author url: https://github.com/Tiex84
+* 
+*/
+
+//
+// Mixin to manage font-family with fonts stored in local project.
+//
+
+@mixin font-face($font-family, $folder, $namefile, $style) {
+	@font-face {
+		font-family: $font-family;
+		src: url('../fonts/#{$folder}/#{$namefile}.eot');
+		src: url('../fonts/#{$folder}/#{$namefile}.eot?#iefix') format('embedded-opentype'),
+		     url('../fonts/#{$folder}/#{$namefile}.woff') format('woff'),
+		     url('../fonts/#{$folder}/#{$namefile}.ttf') format('truetype'),
+		     url('../fonts/#{$folder}/#{$namefile}.svg') format('svg');
+		font-style: $style;
+	}
+}
+
+//
+// Function to calculate font-size in rem unit from px.
+//
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+//
+// Mixin to generate all font-family rules options
+//
+
+@mixin  include-font($name, $size, $weight, $style) {
+        font-family: $name;
+        font-size: $size;
+        font-size: calculateRem($size);
+  		font-style: $style;
+        font-weight: $weight;
+        line-height: $size*1.5;
+}
+
+//  
+// Activate/desactivate Font Smoothing
+//
+
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
