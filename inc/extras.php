@@ -134,3 +134,17 @@ if ( ! function_exists( 'slovo_mobile_web_app_meta' ) ) {
 	}
 }
 add_action( 'wp_head', 'slovo_mobile_web_app_meta' );
+
+
+/**
+ * Allow SVG file to Media livbrary
+ * Paste this code into your function.php file 
+ */
+
+add_filter('upload_mimes', 'slovo_mime_types');
+
+function slovo_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+
